@@ -1,0 +1,42 @@
+  <div class="top">
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="btn btn-dark" routerLink="useradd"><a class="navbar-brand" >Create User</a></button>
+    
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </nav>
+</div>
+<div class="list-group users-list">
+  <div *ngFor='let u of users |async' class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="row">
+      <div class="col col-md-2 image-col">
+        <img class="image" src={{u.data.pic}}>
+      </div>
+      <div class="col col-md-8 text-col">
+        <h5 class="mb-1"> Name: {{u.data.fname}}-{{u.data.lname}}</h5>
+        <h5 class="mb-1" >Age: {{u.data.age}} </h5>
+        <h6 class="mb-">Email: {{u.data.email}}</h6>
+      </div>
+      <div class="col col-md-2 actions-col">
+        <button  (click)='getId(u)'  class="btn btn-primary">View Details</button>
+        <button  (click)='editId(u)' class="btn btn-outline-success action">Edit Details</button>
+        <button  (click)='delete(u)'  class="btn btn-danger">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+
+  <!-- Copyright -->
+  <div  class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="mailto:u4saif@gmail.com"> u4saif@gmail.com</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
